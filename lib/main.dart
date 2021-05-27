@@ -1,3 +1,4 @@
+import 'package:chat_app/layouts/home-layout.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -27,6 +28,17 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(
+          titleTextStyle: TextStyle(
+            color: Colors.black,
+          ),
+          backgroundColor: Colors.white,
+        ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          selectedItemColor: Colors.blue,
+          showSelectedLabels: true,
+          unselectedItemColor: Colors.grey,
+        ),
       ),
       home:Login(),
     );

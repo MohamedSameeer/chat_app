@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:chat_app/layouts/home-layout.dart';
+import 'package:chat_app/share/component/component.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,12 +23,12 @@ class LoginCubit extends Cubit<LoginStates> {
     suffix = isHidden ? Icons.remove_red_eye : Icons.remove_red_eye_outlined;
     emit(LoginChangePasswordState());
   }
-  login(String email, String password){
+  login(String email, String password,BuildContext context){
     FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
           emit(LoginSuccessState());
-          print(value.user?.email.toString());
+          navigateAndFinish(context, HomeLayout());
     }).catchError((onError){
           print(onError.toString());
     });

@@ -103,7 +103,8 @@ class Register extends StatelessWidget {
                                               email: emailController.text,
                                               password: passController.text,
                                               phone: phoneController.text,
-                                              name: nameController.text);
+                                              name: nameController.text,
+                                      context: context);
                                     }
                                   }),
                               SizedBox(

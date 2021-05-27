@@ -63,7 +63,7 @@ class Login extends StatelessWidget {
                       SizedBox(height: 20.0,),
                       defaultButton(text: 'Login',onPressed: (){
                         if(formKey.currentState!.validate()) {
-                          LoginCubit.getInstance(context).login(emailController.text, passController.text);
+                          LoginCubit.getInstance(context).login(emailController.text, passController.text,context);
                         }
                       }),
                       SizedBox(height: 20.0,),
