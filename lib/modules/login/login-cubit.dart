@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:chat_app/layouts/home-layout.dart';
 import 'package:chat_app/share/component/component.dart';
+import 'package:chat_app/share/component/constant.dart';
+import 'package:chat_app/share/network/local/cash-helper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,6 +29,7 @@ class LoginCubit extends Cubit<LoginStates> {
     FirebaseAuth.instance
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
+          CashHelper.saveData('id',value.user?.uid);
           emit(LoginSuccessState());
           navigateAndFinish(context, HomeLayout());
     }).catchError((onError){
